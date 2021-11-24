@@ -1,0 +1,64 @@
+<form class="mx-2" [formGroup]="testForm" (ngSubmit)="onSubmit(testForm)" #fd="ngForm" [ngxFvControl]="fd">
+    <div>
+        <ngx-fv-validate [control]="testForm.controls.firstName">
+            <mat-form-field>
+                <mat-label #ngxFvName>
+                    Fisrt name
+                </mat-label>
+                <input type="text" matInput formControlName="firstName">
+                <mat-error>
+                    <ngx-fv-error></ngx-fv-error>
+                </mat-error>
+            </mat-form-field>
+        </ngx-fv-validate>
+    </div>
+    <ngx-fv-validate [control]="testForm.controls.familyName">
+        <mat-form-field>
+            <mat-label #ngxFvName>
+                Family name
+            </mat-label>
+            <input type="text" matInput formControlName="familyName">
+            <mat-error>
+                <ngx-fv-error></ngx-fv-error>
+            </mat-error>
+        </mat-form-field>
+    </ngx-fv-validate>
+    <div class="mt-2" formArrayName='checkboxes' *ngFor="let checkbox of formCheckboxDataArray.controls; let i = index">
+        <ngx-fv-validate [control]="checkbox.controls.checked" [labelName]="'CheckBox' + i">
+            <div [formGroupName]="i" class="custom-control custom-checkbox mb-3">
+                <mat-checkbox formControlName="checked" #ngxFvName>{{'CheckBox' + i}}</mat-checkbox>
+                <ngx-fv-error></ngx-fv-error>
+            </div>
+        </ngx-fv-validate>
+    </div>
+    <div>
+        <button mat-raised-button color="warn" type="button" (click)="resetForm(fd)">Reset</button>
+        <button mat-raised-button class="button" type="submit">Save</button>
+    </div>
+</form>
+
+<hr>
+
+
+<!-- Mark the form and pass FormGroupDirective for it via ngxFvControl attribute -->
+<form [formGroup]="testForm2" (ngSubmit)="onSubmit(testForm2)" #fd="ngForm" [ngxFvControl]="fd">
+    <!-- Create group sections each form element -->
+    <ngx-fv-validate [control]="testForm2.controls.name">
+        <mat-form-field>
+            <!-- Mark label container with #ngxFvName -->
+            <mat-label #ngxFvName>
+                Name
+            </mat-label>
+            <input style="width:500px;" type="text" matInput formControlName="name">
+            <!-- Show where you want to see the errors -->
+            <mat-error>
+                <ngx-fv-error></ngx-fv-error>
+            </mat-error>
+        </mat-form-field>
+    </ngx-fv-validate>
+    <p></p>
+    <div>
+        <button mat-raised-button color="warn" type="submit">Reset</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+</form>

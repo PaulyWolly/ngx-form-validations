@@ -1,4 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ngx-formValidation {
+    position: relative;
+    width: 580px;
+    border: 2px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.top-box {
+    background-color: blue;
+    text-align: center;
+    color: #fff;
+    height: 80px;
+    position: relative;
+    bottom: 30px;
+}
+
+div.top-box h2 {
+    position: relative;
+    top:20px;
+    font-size: 24px;
+}
+
+form.mx-2 {
+    position: relative;
+    bottom: 20px;
+}
+
+.ngx-form-validations {
+    color:rgb(151, 150, 150);
+    text-shadow: 2px 2px black;
+}

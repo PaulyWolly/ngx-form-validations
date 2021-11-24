@@ -1,0 +1,9 @@
+body, form, h2 {
+    margin:30px;
+    padding-left:30px;
+}
+
+.form-control {
+    width: 500px;
+
+}

@@ -8,10 +8,12 @@ import { FormArray, FormBuilder, FormGroup, FormGroupDirective, Validators } fro
 })
 export class AppComponent {
   testForm: FormGroup;
+  testForm2: FormGroup;
+
   title = 'FormValidation';
 
   constructor(private formBuilder: FormBuilder) {
-  
+
   }
 
   ngOnInit(): void {
@@ -20,6 +22,12 @@ export class AppComponent {
         familyName: [null, [Validators.required, Validators.maxLength(5)]],
         checkboxes: this.formBuilder.array([]),
     });
+
+    this.testForm2 = this.formBuilder.group({
+      firstName: [null, [Validators.required, Validators.maxLength(5)]],
+      familyName: [null, [Validators.required, Validators.maxLength(5)]],
+      checkboxes: this.formBuilder.array([]),
+  });
 
     var checkboxFormArray = this.testForm.get('checkboxes') as FormArray;
     [1, 2].forEach(item => {
@@ -33,15 +41,15 @@ export class AppComponent {
     });
   }
 
-  get formCheckboxDataArray() { 
-    return <FormArray>this.testForm.get('checkboxes'); 
+  get formCheckboxDataArray() {
+    return <FormArray>this.testForm.get('checkboxes');
   }
 
   onSubmit(form: FormGroup){
       if (form.invalid) {
           return;
       }
-      
+
       //Form action
   }
 

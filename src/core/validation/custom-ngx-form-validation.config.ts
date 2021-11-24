@@ -1,6 +1,6 @@
-import { INgxFormValidationsConfig } from 'ngx-form-validation'
+import { INgxFormValidationsConfig } from 'ngx-form-validations';
 
-export const CustomNgxFormValidationsConfig: INgxFormValidationsConfig = 
+export const CustomNgxFormValidationsConfig: INgxFormValidationsConfig =
     {
       "required": requiredConfig,
       "minlength": minlengthConfig,
@@ -12,7 +12,7 @@ export const CustomNgxFormValidationsConfig: INgxFormValidationsConfig =
       "min": minConfig
     };
 
-export function requiredConfig(label: string) {  
+export function requiredConfig(label: string) {
   return `'${label}' is required`;
 }
 export function minlengthConfig(label: string, error: any) {
@@ -30,7 +30,7 @@ export function patternConfig(label: string) {
 export function emailConfig(label: string) {
   return `Invalid email address`;
 }
-export function maxConfig(label: string, error: any) {  
+export function maxConfig(label: string, error: any) {
   return `${label} must be no greater than ${error.max}`;
 }
 export function minConfig(label: string, error: any) {
